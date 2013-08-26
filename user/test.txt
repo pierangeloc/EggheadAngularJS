@@ -1,0 +1,4 @@
+1. type in the input box:
+   - alert-box
+   - panel
+   

@@ -2,9 +2,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>AngularJS tutorial - Egghead - Pierangelo's version</title>
+<link rel="stylesheet" href="css/foundation.css"/>
+
+<script type="text/javascript" src="lib/angular/angular.js"></script>
 </head>
 <body>
+<div ng-app="">
+  <p>Input text: 
+    <input type="text" ng-model="data.message"/>
+  </p>
+  <h1>{{data.message + ": appended string"}}</h1>
+  <div class="{{data.message}}">
+      Wrap me with a nice css class from foundation
+  </div>
+
+</div>
+
 
 </body>
 </html>
