@@ -1,4 +1,5 @@
-1. type in the input box:
+1. First binding example. You can bind even class names. Type in the input box:
    - alert-box
    - panel
    
+2. Created controller
