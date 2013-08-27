@@ -3,3 +3,6 @@
    - panel
    
 2. Created controller
+
+3. Created 2 scopes, and 2 divs with 2 different controllers, totally separated. They are not connected. To connect them, need to create a
+   module
