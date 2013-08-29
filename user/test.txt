@@ -1,8 +1,14 @@
-1. First binding example. You can bind even class names. Type in the input box:
+2. First binding example. You can bind even class names. Type in the input box:
    - alert-box
    - panel
    
-2. Created controller
+3. Created controller
 
-3. Created 2 scopes, and 2 divs with 2 different controllers, totally separated. They are not connected. To connect them, need to create a
-   module
+4. Created 2 scopes, and 2 divs with 2 different controllers, totally separated. They are not connected. 
+   To connect them, need to create a module and inject it into the scopes
+   
+5. Defined a method in the scope. Ideally the method doesn't use the scope directly, unless strictly required. Method can be
+   referenced anywhere within the scope
+
+6. Replaced the reverse method with a filter. Show both methods together
+   
