@@ -11,4 +11,8 @@
    referenced anywhere within the scope
 
 6. Replaced the reverse method with a filter. Show both methods together
+
+7. Test
+
+8. Added an ng-filter
    

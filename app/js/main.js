@@ -1,31 +1,75 @@
 var myApp = angular.module('myApp', []); //myApp has no dependencies
 
-//myApp is a service, that can be injected in any model
-//'Data' is the name of the instance, the function is the getter function of the factory, it's like a getInstance() in java
-//The object Data  is the one returned, and it has an attribute 'message'
-myApp.factory('Data', function(){
-	return {message: "I'm being created by the service"};
+myApp.factory('Avengers', function(){
+	var Avengers = {};
+	
+	Avengers.cast = [
+	                 {
+	                     name: "Robert Downey Jr.",
+	                     character: "Tony Stark / Iron Man"
+	                 },
+	                 {
+	                     name: "Chris Evans",
+	                     character: "Steve Rogers / Captain America}"
+	                 },
+	                 {
+	                     name: "Mark Ruffalo",
+	                     character: "Bruce Banner / The Hulk}"
+	                 },
+	                 {
+	                     name: "Chris Hemsworth",
+	                     character: "Thor"
+	                 },
+	                 {
+	                     name: "Scarlett Johansson",
+	                     character: "Natasha Romanoff / Black Widow"
+	                 },
+	                 {
+	                     name: "Jeremy Renner",
+	                     character: "Clint Barton / Hawkeye"
+	                 },
+	                 {
+	                     name: "Tom Hiddleston",
+	                     character: "Loki"
+	                 },
+	                 {
+	                     name: "Clark Gregg",
+	                     character: "Agent Phil Coulson"
+	                 },
+	                 {
+	                     name: "Cobie Smulders",
+	                     character: "Agent Maria Hill"
+	                 },
+	                 {
+	                     name: "Stellan Skarsgard",
+	                     character: "Selvig"
+	                 },
+	                 {
+	                     name: "Samuel L. Jackson",
+	                     character: "Nick Fury"
+	                 },
+	                 {
+	                     name: "Gwyneth Paltrow",
+	                     character: "Pepper Potts"
+	                 },
+	                 {
+	                     name: "Paul Bettany",
+	                     character: "Jarvis (voice)"
+	                 },
+	                 {
+	                     name: "Alexis Denisof",
+	                     character: "The Other"
+	                 },
+	                 {
+	                     name: "Tina Benko",
+	                     character: "NASA Scientist"
+	                 }
+	             ];
+	
+	return Avengers;
 });
 
-
-//create a filter, name it 'reverse'. In the first function you just inject any stuff that might be needed in the filter
-myApp.filter('reverse', function(Data) {
-	return function(text) {
-		return text.split("").reverse().join("***") + Data.message;
-	};
-});
-
-function FirstCtrl($scope, Data) {
-//	$scope.data = {message:"alert-box"}; //data is a json object
-	$scope.data = Data;
-	
-	$scope.reversedMessage = function(message) {
-		return message.split("").reverse().join("***");
-	};
-}
-
-function SecondCtrl($scope, Data) {
-	$scope.data = Data;
-	//expose a reversedMessage function
-	
+function AvengersCtrl($scope, Avengers)
+{
+	$scope.avengers = Avengers;
 }

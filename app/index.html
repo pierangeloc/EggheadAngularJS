@@ -11,20 +11,24 @@
 <body>
   <div ng-app="myApp">
 
+    <div ng-controller="AvengersCtrl">
+      <label>Search: </label>
+      <input type="text" ng-model="searchText">
+      <table>
+        <tr>
+          <th>Column 1 Heading</th>
+          <th>Column 2 Heading</th>
+        </tr>
+        <!-- this filter applies to any of the attributes of the object (either 'name' or 'character') -->
+        <tr ng-repeat="actor in avengers.cast | filter:searchText"> 
+          <td>{{actor.name}}</td>
+          <td>{{actor.character}}</td>
+        </tr>
+      </table>
 
- 
-    <div ng-controller="FirstCtrl">
-      <input type="text" ng-model="data.message" />
-      <h1>{{reversedMessage(data.message) + ": appended string"}}</h1>
     </div>
 
 
-
-    <div ng-controller="SecondCtrl">
-      <input type="text" ng-model="data.message" />
-      <h1>{{data.message | reverse}}</h1>
-    </div>
-    
   </div>
 
 
