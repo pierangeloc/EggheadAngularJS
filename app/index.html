@@ -13,6 +13,7 @@
 
     <div ng-controller="AvengersCtrl">
       <label>Search: </label>
+      
       <input type="text" ng-model="search.$">
       <table>
         <tr>
@@ -20,9 +21,9 @@
           <th>Column 2 Heading</th>
         </tr>
         <!-- this filter applies only to the name, because the search object is a kind of a prototype -->
-        <tr ng-repeat="actor in avengers.cast | filter:search"> 
-          <td>{{actor.name}}</td>
-          <td>{{actor.character}}</td>
+        <tr ng-repeat="actor in avengers.cast | filter:search | orderBy:'name' | limitTo:-5"> 
+          <td>{{actor.name | lowercase}}</td>
+          <td>{{actor.character | uppercase}}</td>
         </tr>
       </table>
 

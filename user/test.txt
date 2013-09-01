@@ -14,5 +14,7 @@
 
 7. Test
 
-8. Added an ng-filter
+8. Added an ng-filter to filter the result
+
+9. More filters, piped together. search, orderBy, limitTo. Filters apply to lists, and there are filters applying also to strings, e.g. to uppercase/lowercase
    
