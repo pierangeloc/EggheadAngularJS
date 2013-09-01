@@ -13,14 +13,14 @@
 
     <div ng-controller="AvengersCtrl">
       <label>Search: </label>
-      <input type="text" ng-model="searchText">
+      <input type="text" ng-model="search.name">
       <table>
         <tr>
           <th>Column 1 Heading</th>
           <th>Column 2 Heading</th>
         </tr>
-        <!-- this filter applies to any of the attributes of the object (either 'name' or 'character') -->
-        <tr ng-repeat="actor in avengers.cast | filter:searchText"> 
+        <!-- this filter applies only to the name, because the search object is a kind of a prototype -->
+        <tr ng-repeat="actor in avengers.cast | filter:search"> 
           <td>{{actor.name}}</td>
           <td>{{actor.character}}</td>
         </tr>
