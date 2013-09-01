@@ -17,4 +17,6 @@
 8. Added an ng-filter to filter the result
 
 9. More filters, piped together. search, orderBy, limitTo. Filters apply to lists, and there are filters applying also to strings, e.g. to uppercase/lowercase
+
+10. First very simple directive created. It just creates a div tag whenever the directive is called, according to the specified template. It reminds me of tag libraries for jsp
    
