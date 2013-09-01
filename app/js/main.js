@@ -4,7 +4,9 @@ var app = angular.module('superhero',[]);
 //create a directive
 app.directive('superman', function(){
 	return {
-		restrict: 'E', //restrict to ELEMENT
-		template:"<div>Here I am to save the day</div>"
+		restrict: 'A', //restrict to attribute, add feature to an existing element
+		link: function() { //linking function, called when the attribute is encountered
+			alert('I am working!'); 
+		}
 	}
 })
