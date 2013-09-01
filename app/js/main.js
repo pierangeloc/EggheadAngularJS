@@ -1,8 +1,8 @@
 var myApp = angular.module('myApp', []); //myApp has no dependencies
 
 //myApp is a service, that can be injected in any model
-//'Data' is the name of the instance, the function is the getter function of the factory. The object Data  is the one returned
-// by the function
+//'Data' is the name of the instance, the function is the getter function of the factory, it's like a getInstance() in java
+//The object Data  is the one returned, and it has an attribute 'message'
 myApp.factory('Data', function(){
 	return {message: "I'm being created by the service"};
 });
