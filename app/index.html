@@ -9,23 +9,9 @@
 <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
-  <div ng-app="behaviorApp">
-    <!-- use the directive -->
-    <div enter="panel" leave>
-        <p>Here's the content</p>
-        <p>...and 2nd paragraph</p>
-      <!--<p superman flash> superman paragraph-->
-      <!--</p>-->
-      <!--<superman/>-->
-
-    </div>
-    
-
-  </div>
-
   <div ng-app="twitterApp">
     <div ng-controller="AppCtrl">
-        <div>Roll over to load more twits</div>
+        <div enter>Roll over to load more twits</div>
     </div>
   </div>
 
