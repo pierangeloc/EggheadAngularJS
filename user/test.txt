@@ -19,4 +19,5 @@
 9. More filters, piped together. search, orderBy, limitTo. Filters apply to lists, and there are filters applying also to strings, e.g. to uppercase/lowercase
 
 10. First very simple directive created. It just creates a div tag whenever the directive is called, according to the specified template. It reminds me of tag libraries for jsp
-   
+
+11. Directive for element, attribute, class. 2 directives can be applied one after another, adding e.g. multipla attributes that add each one its own behavior   
