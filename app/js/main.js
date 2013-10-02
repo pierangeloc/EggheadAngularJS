@@ -28,3 +28,16 @@ app.directive('leave', function() {
         })
     }
 });
+
+
+var myApp = angular.module("twitterApp", []);
+
+myapp.controller("AppCtrl", function($scope){
+    $scope.loadMoreTweets = function() {
+        alert('Loading Tweets!');
+    }
+});
+
+myApp.directive('enter', function() {
+
+})
