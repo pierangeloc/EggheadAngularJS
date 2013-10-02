@@ -1,26 +1,30 @@
 //create a module
-var app = angular.module('superhero',[]);
+var app = angular.module('behaviorApp',[]);
 
-//create a directive
-app.directive('superman', function(){
-	return {
-		restrict: 'A', //restrict to attribute, add feature to an existing element
-		//restrict: 'C', //restrict to class, add feature to an existing element
+//app.directive('enter', function() {
+//   return {
+//     restrict: "A",
+//     link: function() {
+//
+//     }
+//   } ;
+//});
 
-		link: function() { //linking function, called when the attribute is encountered
-			alert('I am working stronger');
-		}
-//        template: "<div>Here I am to save your ass</div>"
-	};
+//if the only thing to do is adding  a linking function on an attribute directive, we can just return that function instead of the whole object
+app.directive('enter', function() {
+   return function(scope, element, attrs) {
+       element.bind("mouseenter", function() {
+           console.log('inside of elmement with Enter attribute!');
+           element.addClass(attrs.enter);
+       })
+   }
 });
 
-app.directive('flash', function(){
-	return {
-		restrict: 'A', //restrict to attribute, add feature to an existing element
-		//restrict: 'C', //restrict to class, add feature to an existing element
-
-		link: function() { //linking function, called when the attribute is encountered
-			alert('I am working fast fast fast'); 
-		}
-	};
+app.directive('leave', function() {
+    return function(scope, element, attrs) {
+        element.bind("mouseleave", function() {
+            console.log('I\'m leaving on a jet plane!');
+            element.removeClass(attrs.enter);
+        })
+    }
 });
