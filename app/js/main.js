@@ -11,6 +11,7 @@ app.directive("superhero", function() {
                console.log(scope.abilities)
            });
        },
+       scope: {}, //without this {}, the scope would be shared between the instances of the directive
 
        //here we build an api for other directives to talk with this one
        //other directives can call the addStrength()/addSpeed()/addFlight() through this shared controller that is passed to the linking function
