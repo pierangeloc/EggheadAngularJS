@@ -1,31 +1,23 @@
 //create a module
 
-var app = angular.module("choreApp", []);
+var app = angular.module("drinkApp", []);
 
-/**
- * without a scope declared, the scope is shared between all the instances of this directive
- */
-app.directive('messykid', function() {
-    return {
-        restrict: 'E',
-        template: '<input type="text" ng-model="chore"/>{{chore}}'
-    }
+app.controller("AppCtrl", function($scope) {
+    $scope.gusto = "Fragola"
 });
 
-app.controller("ChoreCtrl", function($scope) {
-   $scope.logChore = function(chore) {
-       alert(chore + "is done!!");
-   }
-});
-
-app.directive('kid', function() {
+app.directive('drink', function() {
     return {
-        restrict: 'E',
         scope: {
-            done: '&'
+            flavor: '@'
         },
-        template: '<input type="text" ng-model="chorez"/> ' +
-            '{{chorez}}' +
-            '<div class="button" ng-click="done({chore:chorez})"> I\'m done</div>'
+        template: '<div>{{flavor}}</div>'
+
+        //Equivalent effect having it done through the linking function
+//        ,
+//        link: function(scope, element, attrs, controller) {
+//            scope.flavor = attrs.flavor;
+//        }
     }
 })
+

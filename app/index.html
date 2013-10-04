@@ -9,17 +9,11 @@
 <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
-  <div ng-app="choreApp">
-    <div ng-controller="ChoreCtrl">
-        <p>messy kids</p>
-        <messykid></messykid>
-        <messykid></messykid>
-        <messykid></messykid>
+  <div ng-app="drinkApp">
+    <div ng-controller="AppCtrl">
 
-        <p>tidy kids</p>
-        <kid done="logChore(chore)"></kid>
-        <kid></kid>
-        <kid></kid>
+        <input ng-model="taste">
+        <div drink flavor="{{taste}}"></div>
 
     </div>
   </div>
