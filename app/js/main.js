@@ -1,31 +1,60 @@
 //create a module
 
-var app = angular.module("twitterApp", []);
+var app = angular.module("superApp", []);
 
-app.controller("AppCtrl", function($scope){
-    $scope.loadMoreTweets = function() {
-        alert('Loading Tweets!');
-    }
+app.directive("superhero", function() {
+   return {
+       restrict: 'E',
+       link: function(scope, element, attrs) {
+           element.addClass('button');
+           element.bind('mouseenter', function() {
+               console.log(scope.abilities)
+           });
+       },
 
-    $scope.deleteTweets = function() {
-        alert('deleting tweets!');
-    }
+       //here we build an api for other directives to talk with this one
+       //other directives can call the addStrength()/addSpeed()/addFlight() through this shared controller that is passed to the linking function
+
+       controller: function($scope) {
+           $scope.abilities = [];
+           this.addStrength = function() {
+               $scope.abilities.push('strength')
+           }
+
+           this.addSpeed = function() {
+               $scope.abilities.push('speed')
+           }
+
+           this.addFlight = function () {
+               $scope.abilities.push('flight')
+           }
+       }
+   }
 });
 
-app.directive('enter', function() {
-    return function(scope, element, attrs) {
-        element.bind('mouseenter', function () {
-           //scope.$apply("loadMoreTweets()"); //$apply parses the string, and applies it on the scope. we can use also substitutions with {{}}
-            scope.$apply(attrs.enter);
-        });
+app.directive("strength", function() {
+    return {
+        require: "superhero",
+        link: function(scope, element, attrs, superheroCtrl) { //controller is the one inherited from the required directive
+            superheroCtrl.addStrength();
+        }
     }
 })
 
-app.directive('leave', function() {
-    return function(scope, element, attrs) {
-        element.bind('mouseleave', function () {
-            //scope.$apply("loadMoreTweets()"); //$apply parses the string, and applies it on the scope. we can use also substitutions with {{}}
-            scope.$apply(attrs.leave);
-        });
+app.directive("speed", function() {
+    return {
+        require: "superhero",
+        link: function(scope, element, attrs, superheroCtrl) { //controller is the one inherited from the required directive
+            superheroCtrl.addSpeed();
+        }
+    }
+})
+
+app.directive("flight", function() {
+    return {
+        require: "superhero",
+        link: function(scope, element, attrs, superheroCtrl) { //controller is the one inherited from the required directive
+            superheroCtrl.addFlight();
+        }
     }
 })
