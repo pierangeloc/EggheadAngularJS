@@ -1,61 +1,31 @@
 //create a module
 
-var app = angular.module("superApp", []);
+var app = angular.module("choreApp", []);
 
-app.directive("superhero", function() {
-   return {
-       restrict: 'E',
-       link: function(scope, element, attrs) {
-           element.addClass('button');
-           element.bind('mouseenter', function() {
-               console.log(scope.abilities)
-           });
-       },
-       scope: {}, //without this {}, the scope would be shared between the instances of the directive
+/**
+ * without a scope declared, the scope is shared between all the instances of this directive
+ */
+app.directive('messykid', function() {
+    return {
+        restrict: 'E',
+        template: '<input type="text" ng-model="chore"/>{{chore}}'
+    }
+});
 
-       //here we build an api for other directives to talk with this one
-       //other directives can call the addStrength()/addSpeed()/addFlight() through this shared controller that is passed to the linking function
-
-       controller: function($scope) {
-           $scope.abilities = [];
-           this.addStrength = function() {
-               $scope.abilities.push('strength')
-           }
-
-           this.addSpeed = function() {
-               $scope.abilities.push('speed')
-           }
-
-           this.addFlight = function () {
-               $scope.abilities.push('flight')
-           }
-       }
+app.controller("ChoreCtrl", function($scope) {
+   $scope.logChore = function(chore) {
+       alert(chore + "is done!!");
    }
 });
 
-app.directive("strength", function() {
+app.directive('kid', function() {
     return {
-        require: "superhero",
-        link: function(scope, element, attrs, superheroCtrl) { //controller is the one inherited from the required directive
-            superheroCtrl.addStrength();
-        }
-    }
-})
-
-app.directive("speed", function() {
-    return {
-        require: "superhero",
-        link: function(scope, element, attrs, superheroCtrl) { //controller is the one inherited from the required directive
-            superheroCtrl.addSpeed();
-        }
-    }
-})
-
-app.directive("flight", function() {
-    return {
-        require: "superhero",
-        link: function(scope, element, attrs, superheroCtrl) { //controller is the one inherited from the required directive
-            superheroCtrl.addFlight();
-        }
+        restrict: 'E',
+        scope: {
+            done: '&'
+        },
+        template: '<input type="text" ng-model="chorez"/> ' +
+            '{{chorez}}' +
+            '<div class="button" ng-click="done({chore:chorez})"> I\'m done</div>'
     }
 })
