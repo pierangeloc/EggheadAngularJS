@@ -11,7 +11,7 @@
 <body>
   <div ng-app="twitterApp">
     <div ng-controller="AppCtrl">
-        <div enter>Roll over to load more twits</div>
+        <div enter="loadMoreTweets()" leave="deleteTweets()">Roll over to load more twits</div>
     </div>
   </div>
 
