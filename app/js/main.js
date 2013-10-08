@@ -9,8 +9,8 @@ app.controller("AppCtrl", function($scope) {
 app.directive('drink', function() {
     return {
         scope: {
-            flavor: '=' //evaluates the corresponding attribute
-                        // from the directive (even if with {{}}) and assigns it to the flavor property of the scope
+            flavor: '=' //flavor gets the value from the $scope attribute whose name is specified in
+                        //corresponding 'flavor' attribute value
         },
 //        controller: function($scope) {
 //            $scope.flavor = 'bananka'
